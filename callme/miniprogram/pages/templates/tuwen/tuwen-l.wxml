@@ -1,0 +1,17 @@
+<template name="tuwen-l">
+	<view class="list-item" wx:for="{{infoList}}" wx:for-item="item" wx:key="_id">
+	<navigator url="../infopage/infopage?infoId={{item._id}}&title={{item.title}}">
+		<image class="list-item-img" src="../../images/list-temp.jpg"></image>
+		<view class="list-item-desc">{{item.title}}</view>
+		<view class="list-item-other">日期：{{item.date}}</view>
+	</navigator>
+	</view>
+	<!--
+	<navigator url="../infopage/infopage">
+		<view class="list-item">
+			<image class="list-item-img" src="../../images/list-temp.jpg"></image>
+			<view class="list-item-desc">这里是描述文字呀！这里是描述文字呀！这里是描述文字呀！这里是描述文字呀！这里是描述文字呀！</view>
+		</view>
+	</navigator>
+	-->
+</template>

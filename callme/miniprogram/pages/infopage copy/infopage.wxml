@@ -1,0 +1,22 @@
+<view class="container">
+	<view class="header">
+		<text class="title">{{title}}</text>
+	</view>
+	<view class="content">
+		<view class="info-box">
+			<view wx:for="{{photoList}}" wx:key="name" 
+				class="info-item {{_num == index ? 'touch-start' : ''}}"
+				data-num="{{index}}" 
+				data-phone-number="{{item.phone}}" 
+				bind:tap="makePhone" 
+				bind:touchstart="phoneTouchStart" 
+				bind:touchend="phoneTouchEnd">
+				<text>{{item.name}}：{{item.phone}}</text>
+				<image class="callme-icon" src="{{cmImg}}"></image>
+			</view>
+		</view>
+		<view class="call-tips"><text class="call-tips-lable">Tips:</text> 点击号码可拨打电话。</view>
+		<!-- 引用 action 组件 -->
+		<compAction></compAction>
+	</view>
+</view>

@@ -1,0 +1,72 @@
+/* info scss */
+.container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background-color: #FFF;
+	font-size: 16px;
+}
+
+.header {
+	width: 100%;
+	height: 120rpx;
+	line-height: 120rpx;
+}
+
+/* 标题 */
+.header .title {
+	padding-left: 50rpx;
+	border-left: 10rpx solid #1296db;
+	font-weight: 700;
+	font-size: 20px;
+}
+
+/* 中间内部部分 */
+.content {
+	width: 100%;
+	height: 100%;
+}
+.info-box {
+	padding: 30rpx 0;
+	background: -webkit-linear-gradient(top, #cbebff 0%, #FFFFFF 100%);
+}
+.info-item {
+	display: block;
+	width: 100%;
+	padding: 0 50rpx;
+	margin-bottom: 22rpx;
+	font-size: 18px;
+}
+
+.touch-start {
+	background-color: #b0fefb; 
+	color:#234f71;
+}
+
+.callme-icon {
+	width: 50rpx;
+	height: 50rpx;
+	margin-left: 10rpx;
+}
+
+.call-tips {
+	padding-left: 50rpx;
+	color: #808080;
+	font-size: 14px;
+	margin-bottom: 50rpx;
+}
+
+.call-tips-lable {
+	font-weight: 700;
+	color: #ff1493;
+}
+
+
+/* 底部 */
+.footer {
+	width: 100%;
+	height: 60rpx;
+	text-align: center;
+	line-height: 60rpx;
+	background: #ccc; 
+}

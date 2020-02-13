@@ -1,0 +1,46 @@
+/* miniprogram/pages/infopage/infopage.wxss */
+
+.infopage {
+  padding: 30rpx 40rpx;
+  color: #333;
+}
+
+.banner {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.header {
+  margin-bottom: 15px;
+}
+
+.header-title {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header-title-label {
+  float: left;
+  height: 18px;
+  width: 8px;
+  margin: 5px 10px 0 0;
+  background-color: #1296db;
+}
+
+.header-source,
+.header-date {
+  font-size: 14px;
+  color: #b1b1b1;
+}
+
+.header-date {
+  margin-right: 15px;
+}
+
+.content {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 28px;
+}

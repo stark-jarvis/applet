@@ -1,0 +1,38 @@
+/* 用户行为组件样式 */
+.comp-action {
+	/*background: #ddd; */
+	/*display: flex;*/
+	/*flex-direction: row;*/
+	/*justify-content: center;*/
+	height: 200rpx;
+	text-align: center;
+}
+
+/* 收藏、分享按钮 */
+.comp-collect,
+.comp-share {
+	float:left;
+	width: 100rpx;
+	margin-left: 25vw;
+	font-size: 16px;
+	line-height: 20px;
+}
+.comp-share {
+	float:right;
+	margin: 0 25vw 0 0;
+}
+.comp-collect-btn,
+.comp-share-btn {
+	width: 100rpx;
+	height: 100rpx;
+	padding: 0;
+	background: #FFF; 
+	border: 0;
+}
+.comp-share-btn {
+	margin-bottom: 4px;
+}
+.comp-share-btn-bgimg {
+	width: 100rpx;
+	height: 100rpx;
+}

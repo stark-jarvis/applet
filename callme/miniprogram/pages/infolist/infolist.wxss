@@ -1,0 +1,16 @@
+/* miniprogram/pages/infolist/infolist.wxss */
+
+@import '../templates/tuwen/tuwen-l.wxss';
+
+.header {
+  padding: 20rpx 0;
+  font-size: 16px;
+  text-align: center;
+  background-color: #EEE;
+}
+
+.content {
+  overflow: hidden;
+  padding: 30rpx;
+}
+

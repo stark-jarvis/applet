@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<import src="../templates/tuwen/tuwen-l.wxml" />
+
+<view class="container">
+	<!-- banner -->
+	<view class="banner swiper">
+		<swiper duration="500" interval="5000" autoplay="true" indicator-dots="true"
+			indicator-active-color="rgba(49,154,235,0.8)">
+			<swiper-item>
+				<view class="swiper-item">
+					<image class="banner-img" src="../../images/mp.png"></image>
+				</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item">
+					<image class="banner-img" src="../../images/mp2.jpg"></image>
+					<!--<image class="banner-img" src="cloud://wenwo-cloud-5cyzm.7765-wenwo-cloud-5cyzm-1258449061/mp2.jpg"></image>-->
+				</view>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<!-- hot lines -->
+	<view class="hotlines">
+	<text class="hotlines-label">我的笔记头条：</text><text class="hotlines-txt">论读书的重要性</text>
+	</view>
+
+	<!-- 导航 -->
+	<view class="tabs">
+		<view class="nav">
+			<view class="nav-item">
+				<text class="nav-item-txt">关注</text>
+			</view>
+			<view class="nav-item active">
+				<text class="nav-item-txt">推荐</text>
+			</view>
+			<!--
+			<view class="nav-item">
+				<text class="nav-item-txt">信息流</text>
+			</view>  -->
+		</view>
+		<!-- 内容 -->
+		<view class="panels">
+			<view class="panel-box"></view>
+			<view class="panel-box active">
+				<template is="tuwen-l" data="{{infoList}}" />
+			</view>
+			<!--<view class="panel-box"></view>-->
+		</view>
+	</view>
+</view>

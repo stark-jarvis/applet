@@ -1,0 +1,13 @@
+<view class="comp-action">
+	<view class="comp-collect" bindtap="actionCollect" data-infoid="{{infoId}}">
+		<image class="comp-collect-btn" mode="aspectFit" src="./images/collect-btn.png"></image>
+		<text class="comp-collect-txt">收藏</text>
+	</view>
+	<view class="comp-share">
+		<!-- button 的宽度在 wxss 里写不起作用，在这里写又 ok -->
+		<button class="comp-share-btn" style="width: 100rpx; height: 100rpx;" open-type="share">
+			<image class="comp-share-btn-bgimg" mode="aspectFit" src="./images/share-btn.png"></image>
+		</button>
+		<text class="comp-share-txt">分享</text>
+	</view>
+</view>

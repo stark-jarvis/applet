@@ -1,0 +1,18 @@
+<!--miniprogram/pages/infopage/infopage.wxml-->
+<view class="infopage">
+  <view class="header">
+    <text class="header-title-label"></text><text class="header-title">{{title}}</text>
+    <text class="header-date">添加日期：{{infoContent.date}}</text>
+    <text class="header-source">来源：{{infoContent.source}}</text>
+  </view>
+  <view class="content">
+    <text wx:if="{{infoContent.con01}}" class="content-01">{{infoContent.con01}}</text>
+	<image wx:if="{{infoContent.banner01}}" class="banner" style="height:{{infoContent.banner01h}}px" src="{{infoContent.banner01}}"></image>
+	<text wx:if="{{infoContent.con02}}" class="content-02">{{infoContent.con02}}</text>
+	<image wx:if="{{infoContent.banner02}}" class="banner" style="height:{{infoContent.banner02h}}px" src="{{infoContent.banner02}}"></image>
+	<text wx:if="{{infoContent.con03}}" class="content-03">{{infoContent.con03}}</text>
+	<image wx:if="{{infoContent.banner03}}" class="banner" style="height:{{infoContent.banner03h}}px" src="{{infoContent.banner03}}"></image>
+  </view>
+  <!-- 引用 action 组件 -->
+  <compAction id="compAction" infoId="{{infoContent._id}}"></compAction>
+</view>

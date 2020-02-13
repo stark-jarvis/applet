@@ -1,0 +1,86 @@
+/**index.wxss**/
+
+@import '../templates/tuwen/tuwen-l.wxss';
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #333;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+swiper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.banner-img {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hotlines {
+  width: 100%;
+  text-indent: 20rpx;
+  padding: 20rpx 0;
+  background-color: #FFF;
+}
+.hotlines-label {
+  font-weight: 700;
+}
+
+/* 导航 tabs */
+.tabs { 
+  width: 100%;
+  font-size: 16px;
+}
+.nav {
+  height: 30px;
+  line-height: 30px;
+  background-color: #eee;
+}
+
+.nav-item {
+  float: left;
+  width: auto;
+  padding: 0 30rpx;
+  color: #333;
+}
+
+/* tabs panels */
+.panels {
+  min-height: 300px;
+  background: #FFF; 
+  padding: 30rpx;
+}
+.panel-box {
+  display: none;
+  height: 100%;
+}
+
+/* 激活 tab */
+.nav .active {
+  font-size: 18px;
+  font-weight: 700;
+}
+.nav .active .nav-item-txt {
+  border-bottom: 1px solid #319aeb;
+}
+
+.panels .active {
+  display: block;
+}
