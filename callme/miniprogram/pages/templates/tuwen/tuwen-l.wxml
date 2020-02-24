@@ -1,7 +1,10 @@
 <template name="tuwen-l">
 	<view class="list-item" wx:for="{{infoList}}" wx:for-item="item" wx:key="_id">
 	<navigator url="../infopage/infopage?infoId={{item._id}}&title={{item.title}}">
-		<image class="list-item-img" src="../../images/list-temp.jpg"></image>
+		<block>
+			<image wx:if="{{item.cover}}" class="list-item-img" src="{{item.cover}}"></image>
+			<image wx:else class="list-item-img" src="../../images/list-temp.jpg"></image>
+		</block>
 		<view class="list-item-desc">{{item.title}}</view>
 		<view class="list-item-other">日期：{{item.date}}</view>
 	</navigator>

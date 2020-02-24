@@ -7,7 +7,7 @@
 .list-item-desc {
   overflow: hidden;
   height: 95rpx;
-  margin: 0 0 10rpx 260rpx;
+  margin: 0 0 16rpx 260rpx;
   color: #333;
   font-size: 16px;
 }

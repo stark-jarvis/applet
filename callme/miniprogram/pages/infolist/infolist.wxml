@@ -2,7 +2,7 @@
 <import src="../templates/tuwen/tuwen-l.wxml" />
 
 <view class="infolist">
-	<view class="header"><text class="header-title">我的笔记</text></view>
+	<view class="header"><text class="header-title">更多的笔记</text></view>
 	<view class="content">
 	<!--<template is="tuwen-l" data="{{list}}" />-->
 	<template is="tuwen-l" data="{{infoList}}" />

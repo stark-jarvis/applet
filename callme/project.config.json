@@ -57,6 +57,12 @@
 					"pathName": "pages/infopage/infopage",
 					"query": "infoId=f69a2922-8257-44fb-9528-d2284fddebd9&title= Javascript引擎单线程与setTimeout执行原理",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"scene": null
 				}
 			]
 		}

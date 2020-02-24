@@ -12,6 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+	// 页面地址传过来的 infoId
     this.setData({
 	  infoId: options.infoId,
 	  title: options.title
@@ -26,6 +27,7 @@ Page({
 	const infoCon = db.collection('info_content');
 	let infoId = this.data.infoId;
 
+	// 根据 infoId 查找到当前文章内容
 	infoCon
 	  .where({
 		_id: infoId

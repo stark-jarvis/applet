@@ -1,10 +1,21 @@
 //index.js
+
 const app = getApp()
 
+// 在调用云开发各 API 前，需先调用初始化方法 init 一次（全局只需一次，多次调用时只有第一次生效）
 wx.cloud.init({ });
 
 Page({
   data: {
+	/**
+	county: '',
+	todayWeather: '',
+    avatarUrl: '../../images/user-unlogin.jpg',
+	nickName: '登录',
+	*/
+	isIndexPage: true,
+    userInfo: {},
+	logged: false
   },
 
   onLoad: function() {
@@ -17,20 +28,37 @@ Page({
       return
     }
 
-	const db = wx.cloud.database({
-	  env: 'wenwo-cloud-5cyzm'
-	});
-    const infoList = db.collection('info_list');
-	infoList.limit(10).get({
-	  success: (res) => {
-		  console.log(res);
-		this.setData({
-		  infoList: res.data
-		});
-	  }
-	});
+    // 获取用户信息
+	/**
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+			console.log('getSetting');
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo,
+				nickName: res.userInfo.nickName
+              })
+            }
+          })
+        } else {
+		  wx.openSetting({
+			success: e => {
+			  console.log(e);
+			}
+		  });
+		}
+      }
+    });
+	*/
 	
+	// 获取列表
+	this.getInfoList();
 
+	/** 获取经纬度
 	  wx.getLocation({
 	    type: 'wgs84',
 	    success (res) {
@@ -42,9 +70,11 @@ Page({
 		  console.log(latitude);
 		  console.log(longitude);
 
-		  //that.getCity(latitude, longitude);
+		  // 根据经纬度获取城市名称
+		  that.getCity(latitude, longitude);
 	    }
 	  });
+	*/
   },
 
   /**
@@ -58,7 +88,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+	if (app.globalData.logged) {
+	  this.setData({
+		logged: true
+	  })
+	}
   },
 
   /**
@@ -96,6 +130,31 @@ Page({
 
   },
 
+  // 获取 info list 
+  getInfoList: function() {
+	const db = wx.cloud.database({
+	  env: 'wenwo-cloud-5cyzm'
+	});
+    const infoList = db.collection('info_list');
+	//const $ = db.command.aggregate;
+	const _ = db.command;
+
+	infoList
+	  .where({
+		tags: _.in(['home'])
+	  })
+	  .limit(10)
+	  .get()
+	  .then(res => {
+		console.log(res.data);
+		this.setData({
+		  infoList: res.data
+		})
+	  });
+  },
+
+  // 登录
+
   //根据经纬度获取城市
   getCity: function (latitude, longitude) {
     var that = this;
@@ -108,12 +167,18 @@ Page({
 		let province = res.data.result.address_component.province;
         let city = res.data.result.address_component.city;
 		let county = res.data.result.address_component.district;
+		  /**
         console.log('province: ' + province);
         console.log('city: ' + city);
         console.log('county: ' + county);
-        //把市去掉，下一个接口地址没有模糊处理
-        //that.setData({ city: city });
-		//that.getWeather(city);
+		  */
+
+		that.setData({ 
+			//city: city,
+			county: county
+		});
+		// 根据城市名称获取天气
+		that.getWeather(province, city, county);
       }
     })
   },
@@ -125,16 +190,25 @@ Page({
       url: 'https://wis.qq.com/weather/common',
 	  data: {
 		source: 'xw',
-		weather_type: 'observe|alarm',
+		//weather_type: 'observe|forecast_24h',
+		weather_type: 'forecast_24h',
+		province: province,
+		city: city,
+		county: county
+		/**
 		province: '广东省',
 		city: '肇庆市',
 		county: '封开县'
+		*/
 	  },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res);
+		let forecast = res.data.data.forecast_24h[1];
+		that.setData({
+          todayWeather: forecast.day_weather + ' ' + forecast.min_degree + '/' + forecast.max_degree
+		});
 		  /**
         var future = res.data.data.forecast;
         //移除掉数组中当天的天气信息
@@ -145,6 +219,71 @@ Page({
 		  */
       },
     })
+  },
+
+  // 获取用户信息 button 回调
+  /**
+  onGetUserInfo: function(e) {
+	  console.log(e);
+    if (!this.data.logged && e.detail.userInfo) {
+      this.setData({
+        logged: true,
+		nickName: e.detail.userInfo.nickName,
+		//nickName: '',
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo
+      })
+    }
+  },
+  */
+
+  /**
+  getUserInfo: function() {
+	let that = this;
+	if (this.data.logged) return;
+	
+	onGetOpenid((res) => {
+	  that.setData({
+		logged: true
+	  });
+
+	  Object.assign(app.globalData, {
+		logged: true,
+		openid: res.result.openid
+	  });
+	});
+	
+
+	wx.getSetting({
+      success: (res) => {
+		console.log(res.authSetting['scope.userInfo']);
+		if (!res.authSetting['scope.userInfo']) {
+		  wx.openSetting({
+			success: (res) => {
+			  console.log(res);
+			}
+		  })
+		}
+      }
+	});
+
+	wx.getUserInfo({
+	  success: (res) => {
+		  console.log(res);
+		that.setData({
+		  logged: true,
+		  nickName: res.userInfo.nickName,
+		  //nickName: '',
+		  avatarUrl: res.userInfo.avatarUrl,
+		  userInfo: res.userInfo
+		});
+	  },
+	  fail: (e) => {
+		console.log(`fail`);
+		console.log(e);
+	  }
+	})
   }
+  */
 
 })

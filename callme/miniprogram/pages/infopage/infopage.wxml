@@ -14,5 +14,5 @@
 	<image wx:if="{{infoContent.banner03}}" class="banner" style="height:{{infoContent.banner03h}}px" src="{{infoContent.banner03}}"></image>
   </view>
   <!-- 引用 action 组件 -->
-  <compAction id="compAction" infoId="{{infoContent._id}}"></compAction>
+  <compAction id="compAction" infoObj="{{infoContent}}"></compAction>
 </view>

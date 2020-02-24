@@ -8,31 +8,73 @@
 			indicator-active-color="rgba(49,154,235,0.8)">
 			<swiper-item>
 				<view class="swiper-item">
-					<image class="banner-img" src="../../images/mp.png"></image>
+					<image class="banner-img" src="https://s3.56img.com/help/2wm/img/banner-1.jpg"></image>
 				</view>
 			</swiper-item>
 			<swiper-item>
 				<view class="swiper-item">
-					<image class="banner-img" src="../../images/mp2.jpg"></image>
-					<!--<image class="banner-img" src="cloud://wenwo-cloud-5cyzm.7765-wenwo-cloud-5cyzm-1258449061/mp2.jpg"></image>-->
+					<image class="banner-img" src="https://s3.56img.com/help/2wm/img/banner-2.jpg"></image>
 				</view>
 			</swiper-item>
 		</swiper>
 	</view>
+	<!-- 引用 header 组件 -->
+	<header id="header" isIndexPage="{{isIndexPage}}" isLogged="{{logged}}"></header>
+	<!--<view class="header">-->
+		<!-- 位置天气模块 -->
+		<!--
+		<view wx:if="{{county}}" class="weather">
+			<view class="location-icon"></view>
+			<text class="location-txt">{{county}} {{todayWeather}}</text>
+		</view>
+		-->
+		<!-- 用户登录模块 -->
+		<!--<view bindtap="getUserInfo" class="header-userinfo">-->
+			<!--<text wx:if="{{nickName}}" bindtap="getUserInfo" class="login-nickname">{{nickName}}</text>-->
+			<!--
+			<image class="header-login-btn" mode="aspectFit" src="{{avatarUrl}}"></image>
+			<button 
+				open-type="getUserInfo" 
+				bindgetuserinfo="onGetUserInfo"
+				class="get-userinfo-btn"
+				size="mini">
+				<image class="userinfo-avatar-img" src="{{avatarUrl}}"></image>
+			</button>
+			-->
+			<!--
+			<open-data wx:if="{{logged}}" class="header-login-btn" type="userAvatarUrl"></open-data>
+			<open-data wx:if="{{logged}}" class="login-txt" type="userNickName"></open-data>
+			<image wx:if="{{!logged}}" class="header-login-btn" src="{{avatarUrl}}"></image>
+			<text wx:if="{{!logged}}" class="login-txt">{{nickName}}</text>
+			-->
+		<!--</view>-->
+		<!--<view class="header-label"></view>-->
+		<!-- 收藏按钮 -->
+		<!--
+		<view class="header-collect" bindtap="toCollect">
+			<image class="header-collect-btn" mode="aspectFit" src="../../images/collect-btn.jpg"></image>
+			<text class="header-collect-txt">我的收藏</text>
+		</view>
+	</view>
+	-->
 
 	<!-- hot lines -->
+	<!--
 	<view class="hotlines">
 	<text class="hotlines-label">我的笔记头条：</text><text class="hotlines-txt">论读书的重要性</text>
 	</view>
+	-->
 
 	<!-- 导航 -->
 	<view class="tabs">
 		<view class="nav">
+			<!--
 			<view class="nav-item">
 				<text class="nav-item-txt">关注</text>
 			</view>
+			-->
 			<view class="nav-item active">
-				<text class="nav-item-txt">推荐</text>
+				<text class="nav-item-txt">推荐笔记</text>
 			</view>
 			<!--
 			<view class="nav-item">
@@ -41,7 +83,9 @@
 		</view>
 		<!-- 内容 -->
 		<view class="panels">
+			<!--
 			<view class="panel-box"></view>
+			-->
 			<view class="panel-box active">
 				<template is="tuwen-l" data="{{infoList}}" />
 			</view>
