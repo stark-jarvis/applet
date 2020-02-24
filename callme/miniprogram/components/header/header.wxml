@@ -1,0 +1,18 @@
+<!--components/header2.wxml-->
+<view class="header {{isMyPage ? 'my-header' : ''}}">
+	<!-- 用户登录模块 -->
+	<view bindtap="getUserInfo" class="header-userinfo">
+		<open-data wx:if="{{isLogged}}" class="header-login-btn" type="userAvatarUrl"></open-data>
+		<open-data wx:if="{{isLogged}}" class="login-txt" type="userNickName"></open-data>
+		<image wx:if="{{!isLogged}}" class="header-login-btn" src="{{avatarUrl}}"></image>
+		<text wx:if="{{!isLogged}}" class="login-txt">{{nickName}}</text>
+	</view>
+	<block wx:if="{{isIndexPage}}">
+	<view class="header-label"></view>
+	<!-- 收藏按钮 -->
+	<view class="header-collect" bindtap="toCollect">
+		<image class="header-collect-btn" mode="aspectFit" src="{{collectIcon}}"></image>
+		<text class="header-collect-txt">我的收藏</text>
+	</view>
+	</block>
+</view>
