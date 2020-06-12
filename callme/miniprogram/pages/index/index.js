@@ -146,7 +146,7 @@ Page({
 	  .limit(10)
 	  .get()
 	  .then(res => {
-		console.log(res.data);
+		//console.log(res.data);
 		this.setData({
 		  infoList: res.data
 		})

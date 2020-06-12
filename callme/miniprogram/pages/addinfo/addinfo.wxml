@@ -1,0 +1,50 @@
+<!--miniprogram/pages/addinfo.wxml-->
+<view class="addinfo">
+  <text class="addinfo-title">添加信息</text>
+  <view class="input-item">
+	<input class="input title" type="text" placeholder="标题" />
+  </view>
+  <view class="input-item">
+	<input class="input date" type="text" placeholder="时间" />
+  </view>
+  <view class="input-item">
+	<input class="input cover" type="text" placeholder="封面" />
+  </view>
+  <view class="input-item">
+	<input class="input source" type="text" placeholder="来源" />
+  </view>
+  <view class="input-item">
+	<input class="input content01" type="text" placeholder="content01" />
+  </view>
+  <view class="input-item">
+	<input class="input content02" type="text" placeholder="content02" />
+  </view>
+  <view class="input-item">
+	<input class="input content03" type="text" placeholder="content03" />
+  </view>
+  <view class="input-item">
+	<input class="input banner01" type="text" placeholder="banner01" />
+  </view>
+  <view class="input-item">
+	<input class="input banner01h" type="text" placeholder="banner01 height" />
+  </view>
+  <view class="input-item">
+	<input class="input banner02" type="text" placeholder="banner02" />
+  </view>
+  <view class="input-item">
+	<input class="input banner02h" type="text" placeholder="banner02 height" />
+  </view>
+  <view class="input-item">
+	<input class="input banner03" type="text" placeholder="banner03" />
+  </view>
+  <view class="input-item">
+	<input class="input banner03h" type="text" placeholder="banner03 height" />
+  </view>
+  <view class="input-item">
+	<input class="input tags" type="text" placeholder="tags" />
+  </view>
+
+  <view class="submit-box">
+    <text bindtap="onSubmit" class="submit-btn">提交</text>
+  </view>
+</view>

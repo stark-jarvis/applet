@@ -4,7 +4,8 @@
     "pages/chooseLib/chooseLib",
     "pages/my/my",
     "pages/infopage/infopage",
-    "pages/infolist/infolist"
+    "pages/infolist/infolist",
+    "pages/addinfo/addinfo"
   ],
   "permission": {
     "scope.userLocation": {

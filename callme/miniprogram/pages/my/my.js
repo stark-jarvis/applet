@@ -23,15 +23,11 @@ Page({
 	// 调用子组件变量
 	console.log(header.data.isMyPage);
 	*/
-
-	// 检查登录状态
-	!this.data.isCheckLogin && this.checkLogin();
-
   },
 
   onShow: function() {
 	// 检查登录状态
-	!this.data.isCheckLogin && this.checkLogin();
+	this.checkLogin();
   },
 
   // 检查登录状态
@@ -47,9 +43,6 @@ Page({
 	  that.getCollectList();
 	}
 
-	this.setData({
-	  isCheckLogin: true
-	});
   },
 
   // 获取收藏列表
@@ -68,6 +61,11 @@ Page({
 
 	// openid 由子组件 header 传过来或其他页面登录后设置
 	let openid = app.globalData.openid;
+	if (openid) {
+	  this.setData({
+		logged: true
+	  });
+	}
 
 	// 根据openid 在收藏表查找用户收藏的 infoid
 	collectLists
@@ -92,6 +90,16 @@ Page({
 		  })
 	    }
 	});
+  },
+
+  // 显示 addinfo page
+  showAddPanel(e) {
+	if (!this.data.logged) return;
+	if ('oeDrM4lYuut6T21gxWsZT5j_qygE' !== app.globalData.openid) return;
+
+	wx.navigateTo({
+	  url: '../addinfo/addinfo'
+	})
   },
 
   // 上传图片

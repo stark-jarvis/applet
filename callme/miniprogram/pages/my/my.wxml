@@ -5,7 +5,7 @@
 
   <header id="header" bind:getCollectList="getCollectList" isLogged="{{logged}}" isMyPage="{{isMyPage}}"></header>
 
-  <text class="my-con-title">我收藏的笔记</text>
+  <text bind:longpress="showAddPanel" class="my-con-title">我收藏的笔记</text>
 
   <view class="content">
 	<view class="my-collect-list">
